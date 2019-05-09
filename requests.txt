@@ -1,0 +1,22 @@
+texts = ["Hi", "Hello", "How are you?", "I\'m great, thanks!"]
+senders = ["Bob", "Alice"] * (len(texts) // 2)
+
+curl http://127.0.0.1:5000/get_messages/foo?ts=1557338977.8115342
+
+---
+
+curl http://localhost:5000/create_message -d '{ "message": "Hi", "sender_id": "Bob" }' -H 'Content-Type: application/json'
+curl http://localhost:5000/create_message -d '{ "message": "Hello", "sender_id": "Alice" }' -H 'Content-Type: application/json'
+
+---
+
+curl http://localhost:5000/create_message/foo -d '{ "message": "Hi", "sender_id": "Bob" }' -H 'Content-Type: application/json'
+curl http://localhost:5000/create_message/foo -d '{ "message": "Hello", "sender_id": "Alice" }' -H 'Content-Type: application/json'
+
+curl http://localhost:5000/create_message/foo -d '{ "message": "How are you?", "sender_id": "Bob" }' -H 'Content-Type: application/json'
+curl http://localhost:5000/create_message/foo -d '{ "message": "Im great, thanks!", "sender_id": "Alice" }' -H 'Content-Type: application/json'
+
+
+---
+
+TODO: Send to: alan@segment.com
